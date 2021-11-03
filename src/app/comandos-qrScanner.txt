@@ -1,0 +1,86 @@
+
+
+* Iniciar el proyecto QRScanner
+> ionic start qrscanner tabs
+* Instalar ionic netive //Install Ionic Native core library (once per project)
+> npm install @ionic-native/core
+* se deja todo cargado para probar el lector de QR solo queda usarlo en el emulador o android
+----------------------------------------------------------------------------------------------
+* Leer código QR desde el dispositivo móvil con android
+> ionic cordova platform add android → nno funciona
+
+// Install Cordova plugin
+> ionic cordova plugin add cordova-plugin-camera
+
+// Install Ionic Native TypeScript wrapper
+> npm install @ionic-native/camera
+
+// Install Ionic Native core library (once per project)
+> npm install @ionic-native/core
+
+----------------------------------------------------------------
+* para crear carpeta www
+> ionic capacitor copy
+* para crear proyecto en plataforma android por primera vez que despues cargaremos en Android Studio esto abre proyecto en Android Studio
+> ionic capacitor add android
+* para cargar directo del vscode a android sin abrirlo solo usando el comando
+> ionic capacitor build 
+> Android
+*Para configurar el dispositivo desde chrome se pega esto en la linea de navegación.
+chrome://inspect/#devices
+* Cada vez que se genere algun cambio
+> ionic capacitor copy android
+* Para subir la aplicación
+> ionic capacitor run android
+-----------------------------------------------------------------
+* Para crear el servicio y con skipTests para omitir archivo de prueba spec
+> ionic g s services/dataLocal --skipTests=true
+-----------------------------------------------------------------
+* Para el uso Storage
+> npm install @ionic/storage
+> npm install @ionic/storage-angular
+
+app.module.ts
+import { IonicStorageModule } from '@ionic/storage-angular';
+imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
+
+services>data-local.services.ts
+import { Storage } from '@ionic/storage-angular';
+constructor( private storage: Storage ) {}
+-----------------------------------------------------------------
+* Instalar InAppBrowse para navegar en la app de forma nativa
+
+> npm install @ionic-native/in-app-browser
+> npm install @ionic-native/core --save
+
+app.module.ts
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+providers: [BarcodeScanner,InAppBrowser,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }]
+
+services>data-local.services.ts
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+constructor( private iab: InAppBrowser ) {}
+-----------------------------------------------------------------
+* Probar en dispositivo movil por USB con Android Studio (antes ver que el celular este en modo Desarrolador)
+* Para copiar lo nuevo del proyecto QRScanner
+> ionic capacitor copy
+* Para abrir proyecto en Android Studio
+> ionic capacitor run (probar antes)
+> ionic capacitor build
+---------------------------------------------------------------
+* Generar la pagina de mapa
+> ionic g page pages/mapa
+---------------------------------------------------------------
+* Para instalar Native File y poder determinar donde esta el archivo en mi dispositivo
+https://ionicframework.com/docs/native/file
+> npm install cordova-plugin-file
+> npm install @ionic-native/file
+// linea de codigo a cambiar en Android Studio
+De este error : import android.support.v4.content.FileProvider;
+Cambiar a este directorio: import androidx.core.content.FileProvider;
+---------------------------------------------------------------
+* Para instalar Native Email 
+npm install cordova-plugin-email-composer
+npm install @ionic-native/email-composer
+
+
