@@ -38,7 +38,8 @@ export class Tab1Page {
 
      }).catch(err => {
          //console.log('Error', err);
-         this.dataLocal.guardarRegistro( 'QRCode', 'https://claudiorigollet.cl/developer.html' );
+         //this.dataLocal.guardarRegistro( 'QRCode', 'user [ { "id": 1, "nombre": "Claudio Rigollet", "email": "claudiorigo@gmail.com", "telefono": "+569 5422 5035", "password": "123456", "horario": "Vespertino", "sede": "Viña del Mar", "seccion": "V002" } ]' );
+         this.dataLocal.guardarRegistro( 'QRCode', 'geo:-33.055328, -71.625498' );
      });
   }
 

@@ -14,10 +14,11 @@ export class Tab2Page {
 
   enviarCorreo(){
     console.log("Enviando Correo...");
+    this.dataLocal.enviarCorreo();
   }
 
   abrirRegistro( registro ){
-    console.log("Abrir Registro...", registro);
+    //console.log("Abrir Registro...", registro);
     this.dataLocal.abrirRegistro( registro );
   }
 
